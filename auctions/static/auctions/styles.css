@@ -1,0 +1,150 @@
+body {
+    padding: 10px;
+    height:100%;
+}
+
+.parent {
+    text-align: left;
+    margin-left: 1px; 
+    flex-flow: wrap;
+  }
+.child1 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+.child2 {
+    display: inline-block;
+    vertical-align: right;
+    margin-right: 10px;
+    margin-left:50px;
+    word-break: break-word; 
+    position:absolute;
+
+  }
+.buttons {
+    width: 200px;
+    margin: 0 auto;
+    display: inline;
+    padding-left:50px;
+    padding-top:200px;
+    }
+                
+.action_btn {
+    width: 200px;
+    margin: 0 auto;
+    display: inline;
+    transition: all .2s ease-in;
+    background-color:green;
+}
+.container {
+    max-width: 640px;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    padding-left:225px;
+}
+
+.container textarea {
+    width: 100%;
+    border: none;
+    background: #E8E8E8;
+    padding: 5px 10px;
+    height: 50%;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: 2px solid #016BA8;
+    transition: all 0.5s;
+    margin-top: 15px;
+}
+button.primaryContained {
+    background: #016ba8;
+    color: #fff;
+    padding: 10px 10px;
+    border: none;
+    margin-top: 0px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+    transition: 1s all;
+    font-size: 10px;
+    border-radius: 5px;
+}
+button.primaryContained:hover {
+    background: #9201A8;
+}   
+.bid{
+    padding-left:510px;
+    display: inline-block;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}  
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+  }
+
+

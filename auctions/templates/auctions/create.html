@@ -1,0 +1,44 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Create New Listing</h2>
+    {% if message%}
+    <div class="alert alert-danger" style="text-align: center;" role="alert">
+        {{message}}
+    </div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" class="form-control" name="title" placeholder="Title of the product"/><br>
+
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" cols="30" name="description" rows="5" placeholder="Write the description of product"></textarea>
+            
+            <label for="price">Starting Bid:</label>
+            <input type="number" id="price" class="form-control" name="price" placeholder="Price of the product"/><br>
+            
+            <label for="url">URL of picture(Not mandatory):</label>
+            <input for="url" type="url" id="image_link" class="form-control" name="image_link" placeholder="URL of picture the product"/><br>
+
+            <label for="category">Category:</label>
+            <select name="category" id="category" default="GENERAL">
+                <option value="FASHION">Fashion</option>
+                <option value="ELECTRONICS">Electronics</option>
+                <option value="BEAUTY">Beauty</option>
+                <option value="BOOKS">Books</option>
+                <option value="VEHICLES">Vehicles</option>
+                <option value="KITCHENWARE">Kitchenware</option>
+                <option value="HEALTHCARE">Healthcare</option>
+                <option value="KIDS">Kids</option>
+                <option value="GARDENING">Gardening</option>
+                <option value="ELEHYGINECTRONICS">Hygine</option>
+                <option value="GROCERY">Grocery</option>
+                <option value="GENERAL">General</option>
+            </select><br><br>
+            <input type="submit" value="create">
+        </div>
+    </form>
+{% endblock %}

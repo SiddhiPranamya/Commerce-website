@@ -1,0 +1,56 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h1>Product information</h1><br>
+        <div  class="parent">
+            <div class="child1">
+                <img src="{{listing.image_link}}" alt="Unable to display image" style="height: 300px; width:300px text-align: center; "><br>
+            </div>
+            <div class="child2">
+                <h1>{{listing.title}}</h1>
+                <p><b>Current Bid Price:</b>  ${{listing.price}}</p>
+                <p><b>Description:</b> {{listing.description}}</p>
+                <p><b>Category: </b>{{listing.category}}</p>
+                <p><b>Seller: </b>{{listing.seller}}</p>
+                {% if is_owner %}
+                    <a href="{% url 'close_bidding' listing.id %}">Close bidding</a>
+                {% else %}
+                    {% if added %}
+                        <a href="{% url 'watchlist' listing.id %}" class="btn btn-danger btn-lg" name="remove">Remove from Watchlist</a>
+                    {% else %}
+                        <a href="{% url 'watchlist' listing.id  %}" class="btn btn-success btn-lg" name="addto">Add to Watchlist</a>
+                    {% endif %}
+                    <br> <br>  
+                    <p><b>Place your Bid:</b></P>
+                    <div>
+                    <form action="{% url 'listing' listing.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="number" id="b" class="form-control" name="b" placeholder="Amount in dollars"/><br>
+                        <button>Bid</button>
+                    </form><br>
+                    {% if message%}
+                        <div class="alert alert-{{msg_type}}">{{ message }}</div>
+                    </div><br>
+                    {% endif %}
+                    <form action="{% url 'listing' listing.id %}" method = "POST">
+                        {% csrf_token %}
+                        <input type="text" name="comment" placeholder = "Comment">
+                        <button class = "btn btn-primary dark">Post Comment</button><br>
+                    </form><br>
+                    {% if comments %}
+                        <h3>Comments</h3>
+                        <hr class="my-8">
+                        {% for comment in comments%}
+                            <li><h6><b>{{comment.user}}</b>: <p style="background-color: lightgrey;">{{comment.content}}</p></h6>
+                        {% endfor %}
+                    </div>
+                        </div>
+                    {% endif %}
+                    
+                    
+                {% endif %}
+            </div>
+
+        </div><br>
+      
+{% endblock %}

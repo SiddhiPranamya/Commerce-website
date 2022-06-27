@@ -1,0 +1,19 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h1>Categories</h1><br>     
+    <ul>
+        <li><a style="color:black;" href="{% url 'category' 'FASHION' %}">Fashion</a></li>
+        <li><a style="color:black;" href="{% url 'category' 'ELECTRONICS' %}">Electronics</a></li>
+        <li><a style="color:black;" href="{% url 'category' 'BEAUTY' %}">Beauty</a></li>
+        <li><a style="color:black;" href="{% url 'category' 'BOOKS' %}">Books</a></li>
+        <li><a style="color:black;" href="{% url 'category' 'VEHICLES' %}">Vehicles</a></li>
+        <li><a style="color:black;" href="{% url 'category' 'KITCHENWARE' %}">Kitchenware</a></li>
+        <li><a style="color:black;" href="{% url 'category' 'HEALTHCARE' %}">Healthcare</a></li>
+        <li><a style="color:black;" href="{% url 'category' 'KIDS' %}">Kids</a></li>
+        <li><a style="color:black;" href="{% url 'category' 'GARDENING' %}">Gardening</a></li>
+        <li><a style="color:black;" href="{% url 'category' 'HYGINE' %}">Hygine</a></li>
+        <li><a style="color:black;" href="{% url 'category' 'GROCERY' %}">Grocery</a></li>
+        <li><a style="color:black;" href="{% url 'category' 'GENERAL' %}">General</a></li>
+    </ul>
+{% endblock %}

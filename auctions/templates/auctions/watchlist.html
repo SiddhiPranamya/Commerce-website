@@ -1,0 +1,22 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Watch list items</h2><br>
+    {% for listing in watchlistings%}
+        {%for item in items%}
+            {% if listing.listing_id == item.id %}
+                <div class="column">
+                    <div class="card">
+                        <img src="{{item.image_link}}" alt="Unable to display image" style="height: 200px; width:200px text-align: center;"><br>
+                        <h1>{{item.title}}</h1><br>
+                        <p class="price">${{item.price}}</p><br>
+                        <p>{{item.description}}</p><br>
+                        <form action="{% url 'listing' item.id %}">
+                            <button>View</button>
+                        </form>                  
+                    </div>
+                </div> 
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

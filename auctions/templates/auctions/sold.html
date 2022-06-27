@@ -1,0 +1,99 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    {% if is_winner %}
+        <h2>Congratulations! You are the winner!</h2><br>
+        <table style="width: 100%;">
+            <tbody>
+                <tr>
+                    <td style="width:40px;">
+                        <h5>{{ listing.title }}</h5>
+                        <img src="{{ listing.image_link }}" style="width:90%;"/>
+                    </td>
+                    <td style="width: 60%;">
+                        <div><b>Description:</b> {{ listing.description }}</div><br>
+        
+                        <div><b>Final bidding price:</b> ${{ listing.price }}</div>
+        
+                        <br>
+        
+                        <div><b>Category:</b> {{ listing.category }}</div><br>
+                        <div><b>Listed by:</b> {{ listing.seller }}</div>
+        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <hr>   
+    {% elif seller %}
+        <h2>Dear seller, the bid has been closed!</h2>
+        <table style="width: 100%;">
+            <tbody>
+                <tr>
+                    <td style="width:40px;">
+                        <h5>{{ listing.title }}</h5>
+                        <img src="{{ listing.image_link }}" style="width:90%;"/>
+                    </td>
+                    <td style="width: 60%;">
+                        <div><b>Description:</b> {{ listing.description }}</div><br>
+        
+                        <div><b>Final bidding price:</b> ${{ listing.price }}</div>
+        
+                        <br>
+        
+                        <div><b>Category:</b> {{ listing.category }}</div><br>
+                        <div><b>Winner:</b> {{ listing.winner }}</div>
+        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <hr>
+    {% elif other %}
+        <h2>The bid has been closed!</h2>
+        <table style="width: 100%;">
+            <tbody>
+                <tr>
+                    <td style="width:40px;">
+                        <h5>{{ listing.title }}</h5>
+                        <img src="{{ listing.image_link }}" style="width:90%;"/>
+                    </td>
+                    <td style="width: 60%;">
+                        <div><b>Description:</b> {{ listing.description }}</div><br>
+        
+                        <div><b>Final bidding price:</b> ${{ listing.price }}</div>
+        
+                        <br>
+        
+                        <div><b>Category:</b> {{ listing.category }}</div><br>
+                        <div><b>Winner:</b> {{ listing.winner }}</div>
+        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <hr>      
+    {% else %}
+        <h2>Inactive Listings</h2><br>
+        <div class="row">
+            {% for item in items%}
+                <div class="column">
+                    <div class="card">
+                        <img src="{{item.image_link}}" alt="Unable to display image" style="height: 200px; width:200px text-align: center;"><br>
+                        <h1>{{item.title}}</h1><br>
+                        <p class="price">${{item.price}}</p><br>
+                        <p>{{item.description}}</p><br>
+                        <form action="{% url 'listing' item.id %}">
+                            <button>View</button>
+                        </form>                  
+                    </div>
+                </div> 
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    
+{% endblock %}

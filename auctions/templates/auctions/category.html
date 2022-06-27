@@ -1,0 +1,24 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+{% if empty %}
+<h4>These are no Active Listings available in <b>{{categ}}</b> category.</h4><br>
+{% else %}
+    <h4>These are the Active Listings available in <b>{{categ}}</b> category.</h4><br>
+{% endif %}
+{% for product in products%}
+    <div class="column">
+        <div class="card">
+            <img src="{{product.image_link}}" alt="Unable to display image" style="height: 200px; width:200px text-align: center;"><br>
+            <h1>{{product.title}}</h1><br>
+            <p class="price">${{product.price}}</p><br>
+            <p>{{product.description}}</p><br>
+            <form action="{% url 'listing' product.id %}">
+                <button>View</button>
+            </form>                  
+        </div>
+    </div> 
+{% endfor %}
+
+{% endblock %}
